@@ -5,46 +5,46 @@
 
 
 <!--여기 잇는 이 com.블라블라-->
-<mapper namespace="com.team.NewLearn.mapper.community.CommunityMapper">
+<mapper namespace="com.team.NewLearn.mapper.community.FreeBoardMapper">
 
     <sql id="criteria">
         <trim prefix="(" suffix=") AND">
             <foreach collection="typeArr" item="type" separator="or">
                 <if test="type =='T'.toString()">
-                    where  title like '%'|| #{keyword}||'%'
+                     title like '%'|| #{keyword}||'%'
                 </if>
                 <if test="type =='C'.toString()">
-                    where  content like '%'||#{keyword}||'%'
+                     content like '%'||#{keyword}||'%'
                 </if>
                 <if test="type =='W'.toString()">
-                    where  writer like '%'|| #{keyword}||'%'
+                     writer like '%'|| #{keyword}||'%'
                 </if>
 
             </foreach>
         </trim>
     </sql>
 
-    <sql id="boardType">
+<!--    <sql id="boardType">
         <trim prefix="(" suffix=") AND">
             <foreach collection="typeArr" item="type" separator="or">
---             f = free 자유 게시판
+&#45;&#45;             f = free 자유 게시판
                 <if test="type =='F'.toString()">
                     where  t.id = 1
                 </if>
---             s = study 스터디 게시판
+&#45;&#45;             s = study 스터디 게시판
                 <if test="type =='S'.toString()">
                     where  t.id = 2
                 </if>
 
             </foreach>
         </trim>
-    </sql>
+    </sql>-->
 
 
-    <select id="selectBoardAll" resultType="communityDTO">
+    <select id="getFreeBoardList" resultType="communityDTO">
         select b.id,
         b.memberId,
-        t.typecode ,
+        t.typeName ,
         b.title,
         b.content,
         b.regDate
@@ -52,25 +52,27 @@
 
         inner join boardType as t on b.typeId = t.id
 
-        <include refid="boardType"></include>
+        where t.id  = 1
+        <include refid="criteria"></include>
 
         order by b.id desc
         limit #{pageStart},#{amount}
 
     </select>
 
+
     <select id="getTotal" resultType="int">
-        select count(id) from file_board
+        select count(id) from board
         where
-        <include refid="boardType"></include>
+        <include refid="criteria"></include>
         id > 0
     </select>
 
 
-    <select id="boardDetail" parameterType="int" resultType="communityDTO">
+    <select id="freeBoardDetail" parameterType="int" resultType="communityDTO">
         select b.id,
                b.memberId,
-               t.typecode ,
+               t.typeName ,
                b.title,
                b.content,
                b.regDate
@@ -79,7 +81,7 @@
         where b.id = #{id}
     </select>
 
-    <insert id="boardInsert" parameterType="communityDTO" >
+    <insert id="freeBoardInsert" parameterType="communityDTO" >
 
     insert into board (
        memberId,
@@ -95,9 +97,9 @@
 -
     </insert>
 
-    <update id="boardUpdate" parameterType="communityDTO">
+    <update id="freeBoardUpdate" parameterType="communityDTO">
 
-        update FILE_BOARD set
+        update board set
 
         title= <if test="title != null">#{title}</if>,
 
@@ -107,7 +109,7 @@
 
     </update>
 
-    <delete id="boardDelete" parameterType="int">
+    <delete id="freeBoardDelete" parameterType="int">
 
         DELETE        FROM board        WHERE id = #{id}
 

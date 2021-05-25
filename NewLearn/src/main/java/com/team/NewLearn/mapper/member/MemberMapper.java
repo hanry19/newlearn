@@ -21,8 +21,10 @@ public interface MemberMapper {
     int getTotal();
     // 회원 상세 조회
     MemberDTO selectDetailMember(int id);
+
     //회원 수정
     int memberUpdate(MemberDTO memberDTO);
+
     // 회원 삭제
     int memberDelete(int id);
     // 동적검색
@@ -30,6 +32,13 @@ public interface MemberMapper {
 
     //회원 id email로 찾기
     int selectMemberId(String email);
+
+    // 임시 비번
+    int tempPw(MemberDTO memberDTO);
+
+    //아이디 존재여부
+    String checkId(String email);
+
 
 
 }

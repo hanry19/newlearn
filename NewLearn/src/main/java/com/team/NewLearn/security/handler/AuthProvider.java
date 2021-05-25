@@ -5,9 +5,7 @@ import com.team.NewLearn.service.login.SecurityService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
@@ -39,7 +37,6 @@ public class AuthProvider implements AuthenticationProvider {
 
         return authenticate(email, password);
     }
-
     //실행 2
     private Authentication authenticate (String email, String password) throws  AuthenticationException {
 
@@ -51,12 +48,16 @@ public class AuthProvider implements AuthenticationProvider {
 
         member = (MemberDTO) securityServiceMapper.loadUserByUsername(email);
 
+
         if (member == null) {
             logger.info("::::::::: 회원정보 없다!!!::::::::");
             throw new UsernameNotFoundException(email);
         } else if (member != null && !passwordEncoder.matches(password, member.getPassword())) {
             logger.info(":::::: 비번 틀렷다 ::::::");
             throw new BadCredentialsException(email);
+        } else if (member.getPasswordLock() > 5) {
+            logger.info("::::: 계정 잠김 ㅅㄱ :::::::::");
+            throw new DisabledException(email);
         }
 
         grantedAuthorities.add(new SimpleGrantedAuthority(member.getRole()));

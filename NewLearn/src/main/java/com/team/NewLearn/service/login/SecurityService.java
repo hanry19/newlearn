@@ -31,6 +31,8 @@ public interface SecurityService extends UserDetailsService {
     //전체 글 수량 조회
     int getTotal();
 
+    int checkPassLock(String email) throws Exception;
+
 
 
 }

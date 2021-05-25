@@ -40,6 +40,10 @@
 
     </insert>
 
+    <select id="checkPassLock" parameterType="int" resultType="int">
+
+        SELECT passwordLock FROM member WHERE email = #{email}
+    </select>
 
 
 

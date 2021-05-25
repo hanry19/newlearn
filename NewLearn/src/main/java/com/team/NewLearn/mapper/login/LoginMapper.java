@@ -20,6 +20,9 @@ public interface LoginMapper {
     // 로그인 로그
     int AddLoginLog(LoginLogDTO loginLogDTO) ;
 
+    int checkPassLock(String email);
+
+
 
 
 }

@@ -7,6 +7,7 @@ import com.team.NewLearn.mapper.login.LoginMapper;
 import com.team.NewLearn.mapper.member.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -37,6 +38,13 @@ public class SecurityServiceImpl implements SecurityService {
     public int getTotal() {
         log.info("여기는 get total 서비스 단!!!! ");
         return boardMemberMapper.getTotal();
+    }
+
+    @Override
+    public int checkPassLock(String email) throws DisabledException {
+        log.info("비밀번호 틀린 횟수 조회 중");
+
+        return loginMapper.checkPassLock(email);
     }
 
     // 시큐리티 사용자 인증

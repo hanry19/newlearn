@@ -7,10 +7,12 @@ import com.team.NewLearn.dto.paging.Criteria;
 
 import java.util.List;
 
-public interface CommunityService {
+public interface FreeBoardService {
 
-    // 전체 글 조회
-    List<CommunityDTO> selectBoardAll(Criteria cri);
+    // 커뮤니티 자유게시판  글 불러오기
+    List<CommunityDTO> getFreeBoardList(Criteria cri);
+
+
 
     // 글 상세 조회
     CommunityDTO boardDetail(int id); //게시글 세부내용 보기

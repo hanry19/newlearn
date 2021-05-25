@@ -69,6 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/oauth2/**",
                         "/community/**",
                         "/main",
+                        "/pwFind",
                         "/logout"
 
                 ).permitAll()

@@ -77,6 +77,8 @@
     </select>
 
 
+
+
     <select id="getTotal" resultType="int">
 
         select count(id) from member
@@ -113,9 +115,26 @@
 
     </update>
 
-    <select id="selectMemberId" resultType="int">
+    <select id="selectMemberId" resultType="int" >
         select id from member where email=#{email}
     </select>
+
+
+    <!-- 임시 비밀번호 발급 -->
+    <update id="tempPw" parameterType="memberDTO" >
+        update member set
+        Password = #{password}
+        where email = #{email}
+
+    </update>
+
+    <select id="checkId" resultType="String" >
+        select email from member where email=#{email}
+    </select>
+
+
+
+
 
 
 </mapper>

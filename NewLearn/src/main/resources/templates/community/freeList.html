@@ -1,0 +1,92 @@
+<div th:replace="/layout/header.html :: header"></div>
+
+        <!-- contents start -->
+        <div class="container">
+            <!-- 페이지 타이틀 -->
+            <div class="page-title">
+                <div class="page-title-inner">
+                    <h2>묻고 답해요</h2>
+                    <p>47만명의 커뮤니티!! 함께 토론해봐요</p>
+                </div>
+            </div>
+
+            <!-- 페이지 내용 -->
+            <div class="wrapper">
+
+                <!-- 게시판 카테고리 -->
+                <div class="left-menu">
+                    <ul>
+                        <li class="on"><a th:href="@{/community/free}">자유주제 <i class="fas fa-pen-square"></i></a></li>
+                        <li><a th:href="@{/community/study}">스터디 <i class="fas fa-comment-dots"></i></a></li>
+                    </ul>
+                </div>
+                
+                <!-- 게시판 시작 -->
+                <div class="board-container">
+
+                    <!-- 해결/미해결 선택 -->
+                    <div class="filter-container">
+                        <ul>
+                            <li class="on"><a href="#none">전체</a></li>
+                            <li><a href="#none">미해결</a></li>
+                            <li><a href="#none">해결됨</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- 검색 -->
+                    <div class="search-container">
+                        <div class="search-textbox">
+                            <i class="fas fa-search"></i>
+                            <input type="text">
+                        </div>
+                        <input type="button" value="검색">
+                    </div>
+
+                    <!-- 정렬 -->
+                    <div class="order">
+                        <ul>
+                            <li class="on"><a href="#none"><span class="fas">·</span> 최신순</a></li>
+                            <li><a href="#none"><span class="fas">·</span> 최근 답변순</a></li>
+                            <li><a href="#none"><span class="fas">·</span> 답변많은순</a></li>
+                            <li><a href="#none"><span class="fas">·</span> 좋아요순</a></li>
+                        </ul>
+                        <input type="button" value="글쓰기">
+                    </div>
+
+                    <!-- 게시판 -->
+                    <div class="board">
+                        <table>
+                            <colgroup>
+                                <col style="width:10%">
+                                <col style="width:50%">
+                                <col style="width:15%">
+                                <col style="width:15%">
+                                <col style="width:10%">
+                            </colgroup>
+                            <tr class="bold">
+                                <td>글 번호</td>
+                                <td>제목</td>
+                                <td>작성자</td>
+                                <td>등록일자</td>
+                                <td>조회수</td>
+                            </tr>
+
+                            <tr th:each="data : ${communityDTOS}" th:onclick="|location.href='@{/detail/{id}(id=${data.id})}'|">
+                                <td  th:text="${data.id}">01</td>
+                                <td  th:text="${data.title}">안녕하세요~ 테스트 제목입니다!안녕하세요~ 테스트 제목입니다!안녕하세요~ 테스트 제목입니다!안녕하세요~ 테스트 제목입니다!</td>
+                                <td  th:text="${data.memberId}">테스트</td>
+                                <td  th:text="${data.regDate}">2021-05-21</td>
+                                <td>21 : 조회수 </td>
+                            </tr>
+
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- contents end -->
+
+
+<div th:replace="/layout/footer.html :: footer"></div>

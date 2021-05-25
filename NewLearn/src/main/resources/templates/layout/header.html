@@ -8,20 +8,20 @@
 
 
 <head>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/edit.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" href="/css/edit.css">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
-    <link rel="stylesheet" th:href="@{/plugin/swiper.min.css}">
-    <script th:src="@{/plugin/swiper.min.js}"></script>
-    <script type="text/javascript" th:src="@{/js/basic.js}"></script>
+    <link rel="stylesheet" href="/plugin/swiper.min.css">
+    <script src="/plugin/swiper.min.js"></script>
+    <script type="text/javascript" src="/js/basic.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
 <!--성준 시작 -->
     <!-- Bootstrap core CSS -->
-    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link th:href="@{/css/simple-sidebar.css}" rel="stylesheet">
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
 
 
 <!--    성준 끝-->
@@ -36,7 +36,7 @@
     <div class="header-con">
         <h1 class="logo"><a th:href="@{/main}"><img th:src="@{/img/logo.png}"></a></h1>
         <ul class="mainMenu">
-            <li class="menu"><a href="lectureList.html">강의</a></li>
+            <li class="menu"><a th:href="@{/pwFind}">비번 찾기</a></li>
             <li class="menu"><a th:href="@{/cart/list}">장바구니</a></li>
             <li class="menu"><a th:href="@{/mypage/select}">마이페이지</a></li>
             <li class="menu"> <a th:href="@{/logout}">[로그아웃]</a></li>
@@ -46,19 +46,19 @@
                 <input type="text" class="search_txt" id="search_txt"/>
                 <a href="#"><img th:src="@{/img/icon_search.png}" onclick="search()"></a>
             </li>
-            <li id="header-cart"><a href="#"><img th:src="@{/img/icon_cart.png}"></a>
+            <li id="header-cart"><a href="#"><img src="/img/icon_cart.png"></a>
                 <div class="cart-modal" id="cartModal">
                     <div class="cart-modal-title">장바구니<span>(2)</span></div>
                     <ul class="cart-list">
                         <li>
-                            <a href="#none" class="thumb"><img th:src="@{/img/thumb_01.png}"></a>
+                            <a href="#none" class="thumb"><img src="@{/img/thumb_01.png}"></a>
                             <div class="info">
                                 <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
                                 <p class="price">₩143,000</p>
                             </div>
                         </li>
                         <li>
-                            <a href="#none" class="thumb"><img th:src="@{/img/thumb_02.png}"></a>
+                            <a href="#none" class="thumb"><img src="/img/thumb_02.png"></a>
                             <div class="info">
                                 <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
                                 <p class="price">₩143,000</p>
@@ -69,7 +69,7 @@
                 </div>
             </li>
             <li>
-                <a href="#" class="header-person"><img th:src="@{/img/icon_person.png}"></a>
+                <a href="#" class="header-person"><img src="/img/icon_person.png"></a>
                 <a class="menu-trigger" id="menuTrigger" href="#">
                     <span></span>
                     <span></span>

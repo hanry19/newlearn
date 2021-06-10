@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.team.NewLearn.mapper.lecture.LectureMapper">
+
+<!-- 준철 임의 수정 -->
+    <select id="getLectureList" resultType="com.team.NewLearn.dto.lecture.LectureDTO">
+        SELECT L.ID,L.CATEGORYID,L.TITLE,L.CONTENT,L.PRICE,L.BUYCOUNT,L.REGDATE,L.SCONTENT,F.FILENAME,F.UUID
+        FROM LECTURE AS L,ATTACHFILE AS F
+        WHERE L.ID = F.LECTUREID
+        ORDER BY L.REGDATE DESC
+    </select>
+
+    <select id="getLecture" parameterType="int" resultType="com.team.NewLearn.dto.lecture.LectureDTO">
+        SELECT L.ID,L.CATEGORYID,L.TITLE,L.CONTENT,L.PRICE,L.BUYCOUNT,L.REGDATE,L.SCONTENT,F.FILENAME,F.UUID
+        FROM LECTURE AS L,ATTACHFILE AS F
+        WHERE L.ID = #{id} AND L.ID = F.LECTUREID
+    </select>
+
+    <select id="getLectureUnit" parameterType="int" resultType="com.team.NewLearn.dto.lectureunit.LectureUnitDTO">
+        SELECT * FROM LECTUREUNIT
+        WHERE LECTUREID = #{id}
+        ORDER BY 'ORDER' ASC
+    </select>
+<!-- 준철 임의 수정 끝-->
+
+<!-- 원본 -->
+    <!--    <select id="getList" resultType="com.newLearnV2.newLearnV2.DTO.ClassDTO">-->
+    <!--        SELECT C.ID,C.TITLE,C.CONTENTS,C.PRICE,C.BUYCOUNT,C.REGDATE,F.FILENAME,F.UUID-->
+    <!--        FROM CLASS C,ATTACHFILE F-->
+    <!--        WHERE C.ID = F.CLASS_ID-->
+    <!--        ORDER BY C.REGDATE DESC-->
+    <!--    </select>-->
+
+    <select id="getFile" resultType="com.team.NewLearn.dto.lecture.LectureDTO" parameterType="int">
+        SELECT CLASS_ID,FILENAME,UUID,IMAGE
+        FROM ATTACHFILE
+    </select>
+
+<!--    <select id="getLecture" parameterType="int" resultType="com.newLearnV2.newLearnV2.DTO.ClassDTO">-->
+<!--        SELECT C.ID,C.TITLE,C.CONTENTS,C.PRICE,C.BUYCOUNT,C.REGDATE,F.FILENAME,F.UUID-->
+<!--        FROM CLASS C,ATTACHFILE F-->
+<!--        WHERE ID = #{id} AND C.ID = F.CLASS_ID-->
+<!--    </select>-->
+
+    <!-- 수현 06.02 -->
+    <insert id="addLecture" parameterType="com.team.NewLearn.dto.lecture.LectureDTO" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO LECTURE(CATEGORYID,TITLE,CONTENT,SCONTENT,PRICE) VALUES(
+            #{categoryId},#{title},#{content},#{sContent},#{price}
+        )
+    </insert>
+
+    <update id="updateLecture" parameterType="com.team.NewLearn.dto.lecture.LectureDTO">
+        UPDATE CLASS SET
+        TITLE=#{title},CONTENTS=#{contents},PRICE=#{price},BUYCOUNT=#{buycount}
+        WHERE ID=#{id}
+    </update>
+
+    <delete id="deleteLecture" parameterType="int">
+        DELETE FROM CLASS
+        WHERE ID=#{id}
+    </delete>
+
+<!--    <insert id="addFile" parameterType="com.newLearnV2.newLearnV2.DTO.AttachFileDTO" keyProperty="class_id">-->
+<!--        INSERT INTO ATTACHFILE(CLASS_ID,FILENAME,UUID,IMAGE) VALUES (-->
+<!--            #{class_id},#{fileName},#{uuid},#{image})-->
+<!--    </insert>-->
+
+    <update id="addLectureID" parameterType="String">
+        UPDATE ATTACHFILE set lectureId = #{class_id}
+        WHERE UUID = #{uuid}
+    </update>
+
+    <insert id="addFile" parameterType="com.team.NewLearn.dto.lecture.AttachFileDTO" keyProperty="class_id">
+        INSERT INTO ATTACHFILE(lectureId,FILENAME,UUID,IMAGE) VALUES (
+                                                                         #{class_id},#{fileName},#{uuid},#{image})
+    </insert>
+</mapper>

@@ -1,0 +1,12 @@
+<div th:replace="/layout/header.html :: header"></div>
+<link rel="stylesheet" type="text/css" th:href="@{/css/list.css}">
+
+<!-- contents start -->
+<form method="post" th:action="@{/api/v1/upload/{id}(id=${id})}" enctype="multipart/form-data">
+    <input multiple type="file" name="files">
+    <button>submit</button>
+</form>
+<!-- contents end -->
+
+<div th:replace="/layout/footer.html :: footer"></div>
+

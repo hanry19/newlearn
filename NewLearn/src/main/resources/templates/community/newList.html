@@ -1,0 +1,147 @@
+<div th:replace="/layout/header.html :: header"></div>
+
+            <!-- 페이지 타이틀 -->
+            <div class="page-title">
+                <div class="page-title-inner">
+                    <h2>묻고 답해요</h2>
+                    <p>47만명의 커뮤니티!! 함께 토론해봐요</p>
+                </div>
+            </div>
+
+            <!-- 페이지 내용 -->
+            <div class="wrapper">
+
+                <!-- 게시판 카테고리 -->
+                <div class="left-menu">
+                    <ul>
+                        <li class="on"><a th:href="@{/community/free}">자유주제 <li class="fas fa-pen-square"></li></a></li>
+                        <li><a th:href="@{/community/study}">스터디 <li class="fas fa-comment-dots"></li></a></li>
+                    </ul>
+                </div>
+                
+                <!-- 게시판 시작 -->
+                <div class="board-container">
+
+                    <!-- 해결/미해결 선택 -->
+                    <div class="filter-container">
+                        <ul>
+                            <li class="on"><a href="#none">전체</a></li>
+                            <li><a href="#none">미해결</a></li>
+                            <li><a href="#none">해결됨</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- 검색 -->
+                    <div class="search-container">
+                        <div class="search-textbox">
+                            <i class="fas fa-search"></i>
+                            <input type="text">
+                        </div>
+                        <input type="button" value="검색">
+                    </div>
+
+                    <!-- 정렬 -->
+                    <div class="order">
+                        <ul>
+                            <li class="on"><a href="#none"><span class="fas">·</span> 최신순</a></li>
+                            <li><a href="#none"><span class="fas">·</span> 최근 답변순</a></li>
+                            <li><a href="#none"><span class="fas">·</span> 답변많은순</a></li>
+                            <li><a href="#none"><span class="fas">·</span> 좋아요순</a></li>
+                        </ul>
+                        <div class="order_button"><button type="button" class="modal_btn" data-toggle="modal" data-target="#myModal">글쓰기</button></div>
+                        <div class="container_">
+                            <!-- Trigger the modal with a button -->
+                            
+
+                          <p th:text="${communityDTO}"></p>
+
+                            <!-- Modal -->
+                            <form th:object=${communityDTO} th:action="@{/communitys/write}"  method="post" >
+                                <div class="modal fade" id="myModal" role="dialog">
+                                  <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+
+                                          <label for="typeName">주제 선택</label>
+                                          <select id="typeName">
+                                              <option value="typeName">자유게시판</option>
+                                              <option value="typeName">스터디</option>
+                                          </select>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="form_name">
+<!--                                            <input type="hidden" th:value="${typeId}">-->
+                                            <div><label for="name">이름</label></div
+                                             <div>
+                                                 <input  th:text="${name}" id="name" name="name">
+                                             </div>
+                                        </div>
+                                        <div class="form_name">
+                                            <div><label for="title">제목</label></div>
+                                             <div>
+                                                 <input  th:field="*{title}" id="title" name="title"  placeholder="제목을 입력하세요">
+                                             </div>
+                                        </div>
+                                        <div class="form_name">
+                                            <div ><label for="content">내용</label></div>
+                                             <div class="form_name_text">
+                                                 <input  th:field="*{content}" id="content" name="content"  placeholder="내용을 입력하세요">
+                                             </div>
+                                        </div>
+                                      </div>
+                                      <div class="modal-footer">
+                                          <button>저장</button>
+                                      </div>
+                                    </div>
+
+                                  </div>
+                                </div>
+                            </form>
+                          </div>
+                    </div>
+
+
+        <!--
+                 <form th:object=${communityDTO} th:action="@{/community/free/write}"  >
+                                    <div>
+                                        <label for="title" style="font-weight: bolder;">제목</label>
+                                        <input type="text" th:field="*{title}" id="title" name="title"
+                                               placeholder="제목을 입력하세요" required="required">
+                                    </div>
+                                    <div>
+                                        <label for="writer" style="font-weight: bolder;">작성자</label>
+
+                                        <input type="text" th:field="*{name}" id="writer" name="writer"
+                                               placeholder="작성자를 입력하세요" required="required">
+                                    </div>
+                                    <div style="font-weight: bolder;">
+                                        <label for="content">내용</label><br/>
+                                        <textarea th:field="*{content}" id="content" name="content" rows="15" cols="50"
+                                                  placeholder="내용을 입력하세요" required="required"></textarea>
+                                    </div>
+                                    <div>
+                                        <input type="file" name="files">
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <input type="submit" th:value="목록" formaction="/community/free">
+                                        <input type="submit" th:value="작성" >
+                                        <input type="reset" th:value="취소" formaction="/community/free" >
+                                    </div>
+                                </form>
+        -->
+
+
+
+        <!-- contents end -->
+             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<div th:replace="/layout/footer.html :: footer"></div>
+
+
+    </body>
+</html>

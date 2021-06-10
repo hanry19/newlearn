@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.team.NewLearn.mapper.lecture.VideoMapper">
+    <insert id="addLectureUnit" parameterType="com.team.NewLearn.dto.lectureunit.LectureUnitDTO">
+        INSERT INTO lectureunit(LECTUREID,TITLE,FILENAME,url,LECTURELENGTH) VALUES (#{id},#{title},#{fileName},#{url},#{lectureLength})
+    </insert>
+
+    <select id="checkUnit" parameterType="int" resultType="int">
+        select count(*) from lectureunit
+        WHERE id = #{id}
+    </select>
+
+    <select id="getLectureUnit" parameterType="int" resultType="com.team.NewLearn.dto.lectureunit.LectureUnitDTO">
+        SELECT * FROM lectureunit
+        WHERE id = #{id}
+    </select>
+</mapper>

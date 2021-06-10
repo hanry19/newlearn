@@ -26,5 +26,7 @@ public interface FreeBoardService {
     // 작성된 총 글 수
     int getTotal(Criteria cri);
 
+    //조회수 증가
+    int viewUpdate(int id);
 
 }

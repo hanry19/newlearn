@@ -42,61 +42,13 @@
   </div>
 </footer>
 
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/vendor/jquery/jquery.min.js}"></script>
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
 <script>
-
-
-// -- ***********지연 스크립트 시작 ***********
-  function itemSum(){
-    var str = "";
-    var sum = 0;
-    /*      var count = $(".lecture_price").length;
-            var price = $(".lecture_price");
-            sum += parseInt(price[i].value);
-            $("#total_sum").html(sum+" 원");   */
-    $('.lecture_price').each(function(index, item){
-      var price = parseInt($(item).text());
-      sum += price
-    });
-    $("#total_sum").html("총 가격 : "+ sum +" 원");
-  }
-
-  itemSum();
-
-  $('.delete-btn').click(function (){
-    var confirm_val = confirm("정말 삭제하시겠습니까?");
-
-    if (confirm_val) {
-      var cartId = $(this).attr('value');
-
-      $.ajax({
-        url : "/cart/delete",
-        type : "post",
-        data : { cartId : cartId },
-        success: function (result) {
-          if (result == 1) {
-            location.href = "/cart/list";
-          }else{
-            alert("삭제 실패");
-          }
-        }
-
-      })
-    }
-  });
-// ***********지연 스크립트 끝 ***********
-
-
-
-// ********** 성준 스크립트 시작 ***************
-
-
+/* ********** 성준 스크립트 시작 *************** */
   // 페이징 링크 값 받은 뒤 전달 시작
   var actionForm = $("#actionForm");
 
@@ -126,9 +78,10 @@
     searchForm.submit();
 
   });
-// *************** 성준 끝 ************************
+<!--*************** 성준 끝 ************************-->
 
-// *************** 메인페이지 시작 *****************
+
+<!--*************** 메인페이지 시작 *****************-->
 
 var noticeSwiper = new Swiper('.mobile-notice.swiper-container', {
   loop:true,
@@ -144,7 +97,7 @@ var noticeSwiper = new Swiper('.mobile-notice.swiper-container', {
   },
 });
 
-// *************** 메인페이지 끝 *******************
+<!--*************** 메인페이지 끝 *******************-->
 
 </script>
 </body>

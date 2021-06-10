@@ -47,11 +47,6 @@ public class LoginController {
         return  "login/error";
     }
 
-    /*    // 로그인 성공 이동 그냥 바로 메인으로 쏘으면 될듯? 필요 없음
-    @GetMapping("/main")
-    private String loginSuccess() {
-        return  "main/home";
-    }*/
 
 
     //아이디 중복체크

@@ -52,8 +52,8 @@ public class MemberServiceImpl implements MemberService {
             return boardMemberMapper.memberUpdate(memberDTO);
         }else{
             memberDTO.setPassword(passwordEncoder.encode(memberDTO.getPassword()));
-        log.info("::::::: 비밀번호 수정한다 :::::");
-        return boardMemberMapper.memberUpdate(memberDTO);
+            log.info("::::::: 비밀번호 수정한다 :::::");
+            return boardMemberMapper.memberUpdate(memberDTO);
 
         }
     }

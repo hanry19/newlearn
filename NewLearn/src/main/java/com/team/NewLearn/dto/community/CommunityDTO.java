@@ -1,25 +1,26 @@
 package com.team.NewLearn.dto.community;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.team.NewLearn.dto.member.MemberDTO;
+import lombok.*;
 import org.apache.ibatis.type.Alias;
 
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Alias("communityDTO")
 public class CommunityDTO {
 
     private int id;
-    private String memberId;
-    private String typeId;
+    private String name;
+    private String email;
+    private String typeName;
     private String title;
     private String content;
     private String regDate;
+    private int view;
 
 
 }

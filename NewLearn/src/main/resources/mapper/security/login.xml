@@ -31,10 +31,10 @@
     <insert id="AddLoginLog" parameterType="memberDTO">
         /* 로그인 로그 */
         INSERT INTO loginLog
-            ( id
-            , loginIp
-            , state
-            )
+        ( id
+        , loginIp
+        , state
+        )
         VALUES
             ( #{id}, #{loginIp}, #{state} )
 

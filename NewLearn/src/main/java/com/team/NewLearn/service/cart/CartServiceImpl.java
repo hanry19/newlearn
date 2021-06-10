@@ -14,16 +14,29 @@ public class CartServiceImpl implements CartService{
 
     private final CartMapper cartMapper;
 
+    @Override
     public List<CartList> getCartList(int memberId) {
         return cartMapper.selectCartList(memberId);
     }
 
+    @Override
     public void deleteCartAll(int memberId) {
         cartMapper.deleteCartAll(memberId);
     }
 
+    @Override
     public int deleteCart(CartDTO cartDTO){
         return cartMapper.deleteCart(cartDTO);
+    }
+
+    @Override
+    public int countLecture(CartDTO cartDTO) {
+        return cartMapper.countLecture(cartDTO);
+    }
+
+    @Override
+    public int insertLecture(CartDTO cartDTO) {
+        return cartMapper.insertLecture(cartDTO);
     }
 
 

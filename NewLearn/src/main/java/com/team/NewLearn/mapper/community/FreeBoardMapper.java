@@ -19,16 +19,15 @@ public interface FreeBoardMapper {
     int freeBoardInsert(CommunityDTO communityDTO); //게시글 생성
     // 글 수정
     int freeBoardUpdate(CommunityDTO CommunityDTO); //게시글 수정
+
     // 글 삭제
     int freeBoardDelete(int id); //게시글 삭제
 
     // 작성된 총 글 수
     int getTotal(Criteria cri);
 
-
-//    //동적 검색을 위한것
-//    List<CommunityDTO> searchTest(Map<String, Map<String, String>> map);
-
+    //조회수 증가
+    int viewUpdate(int id);
 
 
 }

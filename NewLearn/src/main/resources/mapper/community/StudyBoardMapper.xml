@@ -11,13 +11,13 @@
         <trim prefix="(" suffix=") AND">
             <foreach collection="typeArr" item="type" separator="or">
                 <if test="type =='T'.toString()">
-                     title like '%'|| #{keyword}||'%'
+                    title like '%'|| #{keyword}||'%'
                 </if>
                 <if test="type =='C'.toString()">
-                     content like '%'||#{keyword}||'%'
+                    content like '%'||#{keyword}||'%'
                 </if>
                 <if test="type =='W'.toString()">
-                     writer like '%'|| #{keyword}||'%'
+                    writer like '%'|| #{keyword}||'%'
                 </if>
 
             </foreach>
@@ -26,19 +26,22 @@
 
     <select id="getStudyBoardList" resultType="communityDTO">
         select b.id,
-        b.memberId,
-        t.typeName ,
+        b.email,
+        m.name,
         b.title,
         b.content,
-        b.regDate
+        b.regDate,
+        b.view
         from board as b
+        inner join boardType as t on b.typeName = t.typeName
+        inner join member as m on b.email = m.email
 
-        inner join boardType as t on b.typeId = t.id
         where t.id  = 2
         <include refid="criteria"></include>
 
         order by b.id desc
         limit #{pageStart},#{amount}
+
 
     </select>
 
@@ -52,39 +55,38 @@
 
     <select id="studyBoardDetail" parameterType="int" resultType="communityDTO">
         select b.id,
-               b.memberId,
-               t.typeName ,
+               t.typeName,
+               m.name,
                b.title,
                b.content,
                b.regDate
         from board as b
-                 inner join boardType as t on b.typeId = t.id
+                 inner join boardType as t on b.typeName = t.typeName
+                 inner join member as m on b.email = m.email
         where b.id = #{id}
     </select>
 
     <insert id="studyBoardInsert" parameterType="communityDTO" >
 
-    insert into board (
-       memberId,
-       typeId,
-       title,
-       content)
-            value (
-                    #{memberId},
-                    #{typeId},
-                    #{title},
-                    #{content}})
+        insert into board (email,
+                           typeName,
+                           title,
+                           content)
+            value ( #{email},
+            #{typeName},
+            #{title},
+            #{content}})
 
--
+
     </insert>
 
     <update id="studyBoardUpdate" parameterType="communityDTO">
 
         update board set
 
-        title= <if test="title != null">#{title}</if>,
+        title= #{title}
 
-        content= <if test="content != null">#{content}</if>
+        <if test="content != null">, content=  #{content}</if>
 
         where id=#{id}
 

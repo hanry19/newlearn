@@ -46,7 +46,6 @@ public class AuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
             String getAuthorities = authentication.getAuthorities().toString();
             String s = authentication.getPrincipal().toString();
 
-
             System.out.println("email = " + email);
             System.out.println("a = " + getDetails);
             System.out.println("b = " + getAuthorities);

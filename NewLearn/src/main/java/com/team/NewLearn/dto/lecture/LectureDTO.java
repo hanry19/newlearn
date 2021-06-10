@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.apache.ibatis.type.Alias;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Data
 @Component
 @NoArgsConstructor
@@ -13,12 +15,17 @@ import org.springframework.stereotype.Component;
 @Alias("lectureDTO")
 public class LectureDTO {
 
-    private int id;
-    private int teacherId;
-    private String title;
-    private String content;
-    private int price;
-    private int buyCount;
-    private String regDate;
-    private String sContent;
+    int id;
+    int categoryId;
+    int memberId;
+    String title;
+    String content;
+    int price;
+    int buyCount;
+    Date regDate;
+    String sContent;
+
+    String filename;
+    String uploadpath;
+    String uuid;
 }

@@ -28,18 +28,6 @@
         where c.memberId=#{memberId}
     </select>
 
-
-    <!--<select id="selectCartList" resultType="cartListDTO">
-        SELECT id,memberId,l.lectureId,title
-        FROM cart c
-                 inner join lecture l on c.lectureId=l.lectureId
-        where c.userId=#{userId}
-    </select>-->
-
-    <!--<select id="selectCartList" resultType="com.team.NewLearn.dto.cart.CartDTO">
-            select * from cart where memberId=#{memberId}
-        </select>-->
-
     <!-- 카트 모두 삭제 -->
     <delete id="deleteCartAll" parameterType="int">
         DELETE FROM cart WHERE memberId = #{memberId}
@@ -49,6 +37,18 @@
     <delete id="deleteCart" parameterType="cartDTO">
         DELETE FROM cart WHERE id = #{id} and memberId = #{memberId}
     </delete>
+
+    <!-- 카트에 같은 강의 존재 여부확인 -->
+    <select id="countLecture" parameterType="cartDTO" resultType="int">
+        SELECT count(*) FROM cart WHERE memberId = #{memberId} and lectureId = #{lectureId}
+    </select>
+
+    <!-- 카트에 강의 등록 -->
+    <insert id="insertLecture" parameterType="cartDTO">
+        INSERT INTO cart(memberId,lectureId) values(#{memberId},#{lectureId})
+    </insert>
+
+
 
 </mapper>
 

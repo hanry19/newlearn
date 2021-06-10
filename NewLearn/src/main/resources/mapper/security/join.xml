@@ -11,7 +11,7 @@
             #{email}
             ,#{password}
             ,#{name}
-            );
+            )
 
     </insert>
 

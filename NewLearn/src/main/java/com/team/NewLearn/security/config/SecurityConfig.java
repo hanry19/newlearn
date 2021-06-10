@@ -33,43 +33,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private SecurityServiceImpl securityService;
 
-//    @Bean           //  For remember-me Logic Not yet finish.
-//    public PersistentTokenRepository persistentTokenRepository() {
-//        JdbcTokenRepositoryImpl repository = new JdbcTokenRepositoryImpl();
-//        repository.setDataSource(dataSource);
-//        return repository;
-//    }
-//
-//// 이거 지워도 되는건가 모르겟네
-// 2021.05.15 토요일 5시  성준아 이거 확인해보고 답장 줘
-
-    //    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.authenticationProvider(authProvider);
-//    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
 
         http.authorizeRequests()
                 .antMatchers("/user/**").access("hasRole('ROLE_USER')")
-//                .antMatchers("/manager/**").access("hasRole('ROLE_MANAGER')")
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
 
                 .antMatchers("/mypage/**").access("hasRole('ROLE_USER')or hasRole('ROLE_ADMIN')")
 
-                //누구나 접속할 수 있는 페이지이기 때문에 누구나 접근이 가능하다 (.permitAll())
                 .antMatchers("/main",
                         "/login",
                         "/sign-Up",
                         "/pwFind",
                         "/login/**",
-                        "/oauth/**",
-                        "/oauth2/**",
+                        "/reply/**",
                         "/community/**",
                         "/main",
                         "/pwFind",
+                        "/css/**","/js/**","/img/**","/plugin/**","/vendor/**",
                         "/logout"
 
                 ).permitAll()
@@ -96,16 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login")  // 이 경로로 리다이렉트 하고
                 .invalidateHttpSession(true);   // 세션 초기화
 
-
-//        http.rememberMe()
-//                .tokenRepository(persistentTokenRepository())
-//                .tokenValiditySeconds(60 * 60 * 7)
-//                .userDetailsService(securityService);
     }
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring()
-                .antMatchers( "/css","/js" );
-    }
+
 }

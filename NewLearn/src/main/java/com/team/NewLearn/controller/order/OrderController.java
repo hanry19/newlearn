@@ -11,6 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.text.DecimalFormat;
@@ -28,16 +29,12 @@ public class OrderController {
     private final CartService cartService;
     private final MemberService memberService;
 
-    @GetMapping
+    @PostMapping
     public String insertOrder(@ModelAttribute OrderDTO orderDTO, Authentication auth){
 
-        // 로그인한 정보 중 이름을 불러온다.
-        this.email = auth.getName().toString();
-        //email로 memberId 찾기.
+        email = auth.getName().toString();
         memberId = memberService.selectMemberId(email);
-        log.info(auth.getDetails());
-        System.out.println(memberId);
-
+        log.info(":::::::::::주문하기 in controller ::::::::::::::::::");
         orderDTO.setMemberId(memberId);
         orderService.insertOrder(orderDTO);
         cartService.deleteCartAll(memberId);

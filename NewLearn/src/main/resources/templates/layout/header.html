@@ -4,13 +4,14 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       th:fragment="header">
-
-
-
 <head>
     <link rel="stylesheet" type="text/css" href="/css/edit.css">
     <link rel="stylesheet" type="text/css" href="/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/community_detail.css">
+    <link rel="stylesheet" href="/css/board.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
     <link rel="stylesheet" href="/plugin/swiper.min.css">
     <script src="/plugin/swiper.min.js"></script>
@@ -22,10 +23,7 @@
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="/css/simple-sidebar.css" rel="stylesheet">
-
-
 <!--    성준 끝-->
-
 
     <meta charset="utf-8">
     <title>Newlearn</title>
@@ -36,10 +34,13 @@
     <div class="header-con">
         <h1 class="logo"><a th:href="@{/main}"><img th:src="@{/img/logo.png}"></a></h1>
         <ul class="mainMenu">
+            <li class="menu"><a th:href="@{/lecturelist}">강의</a></li>
             <li class="menu"><a th:href="@{/pwFind}">비번 찾기</a></li>
             <li class="menu"><a th:href="@{/cart/list}">장바구니</a></li>
             <li class="menu"><a th:href="@{/mypage/select}">마이페이지</a></li>
-            <li class="menu"> <a th:href="@{/logout}">[로그아웃]</a></li>
+            <li sec:authorize="!isAuthenticated()" class="menu"> <a th:href="@{/login}">[로그인]</a></li>
+            <li sec:authorize="isAuthenticated()" class="menu"> <a th:href="@{/logout}">[로그아웃]</a></li>
+
         </ul>
         <ul class="rightMenu">
             <li class="header-search">

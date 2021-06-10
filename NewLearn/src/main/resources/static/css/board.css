@@ -2,6 +2,9 @@
 .bold {
     font-weight:bold;
 }
+.container {
+    margin: auto;
+}
 
 
 /* 페이지 타이틀 */
@@ -114,7 +117,7 @@
 }
 .filter-container ul > li > a {
     display:inline-block;
-    width:50px;
+    width:70px;
     text-align:center;
     color:#ddd;
     font-weight:bold;
@@ -191,4 +194,98 @@
 }
 .board-container table tr:last-child td {
     border-bottom:1px solid #ddd;
+}
+
+
+/* 모달  */
+
+.modal_btn {
+    
+    background-color:#333b3d;
+    color: #fff;
+    width: 80px;
+    height: 40px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.modalHeaderBtn {
+    margin-top: 20px;
+}
+
+.modalHeaderBtn > button {
+    font-size:17px;
+    font-weight:bold;
+    width: 100px;
+    height: 40px;
+    color: #111;
+    margin-right: 5px;
+   
+    
+}
+.modalHeaderBtn > .on{
+   background-color: #4a81ff;
+   color: #fff;
+   
+    
+}
+
+.modalHeaderBtn button:hover {
+    color: #fff;
+    background-color: #4a81ff;
+}
+
+.modal-content {
+    margin-top: 250px ;
+}
+
+.modal-content h4{
+    font-weight: bold;
+}
+
+
+.modal-content .label {
+    font-weight: bold;
+    font-size: large;
+}
+
+.form_name label {
+    color: #333;
+    font-weight: bold;
+    font-size: large;
+}
+
+
+.form_name input {
+    
+    width: 565px;
+    height: 30px;
+}
+
+.form_name_text input {
+    height: 250px;
+    
+}
+
+.modal-footer > button {
+    font-size:17px;
+    font-weight:bold;
+    width: 100px;
+    height: 40px;
+    color: #111;
+    margin-right: 5px;
+    
+}
+
+.modal-footer button:hover {
+    color: #fff;
+    background-color: #4a81ff;
+}
+
+.order_button {
+position: relative;
+bottom: 10px;
+    margin-left: 500px;
+    
 }

@@ -12,7 +12,11 @@ public interface CartService {
 
     void deleteCartAll(int memberId);
 
-
     int deleteCart(CartDTO cartDTO);
+
+    public int countLecture(CartDTO cartDTO);
+
+    public int insertLecture(CartDTO cartDTO);
+
 
 }

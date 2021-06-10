@@ -3,9 +3,11 @@ package com.team.NewLearn.service.mail;
 
 import com.team.NewLearn.dto.member.MemberDTO;
 import com.team.NewLearn.mapper.member.MemberMapper;
+import com.team.NewLearn.service.login.SecurityService;
 import com.team.NewLearn.util.MailHandler;
 import com.team.NewLearn.util.TempPw;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,8 +21,10 @@ public class MailService {
 
     private final MemberMapper memberMapper;
     private final JavaMailSender mailSender;
+    private final SecurityService securityServiceMapper;
     private static final String FROM_ADDRESS = "qntkstksmstjdwns2@gmail.com";
 
+    @SneakyThrows
     public void checkId(MemberDTO memberDTO){
 
         log.info("::::::  입력 된 id : "+ memberDTO.getEmail() + " 조회 중::::::");
@@ -29,8 +33,10 @@ public class MailService {
             log.info("id가 존재하지 않습니다.");
 
         }else{
-           log.info("::::::: 해당 id 임시 비밀번호 발급 ㄱㄱ ::::::::::");
-           mailSend(memberDTO);
+            log.info("::::::: 해당 id 임시 비밀번호 발급 ㄱㄱ ::::::::::");
+
+            mailSend(memberDTO);
+            securityServiceMapper.resetPasswordFailCnt(memberDTO.getEmail());
         }
 
     }

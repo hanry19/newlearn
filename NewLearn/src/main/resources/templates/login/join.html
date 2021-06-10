@@ -57,7 +57,7 @@
 
 
 
-        <button class="btn btn-success" type="submit" th:value="목록" th:formaction="@{/}">목록</button>
+
         <button class="btn btn-success" type="submit">가입</button>
         <button class="btn btn-success" type="submit" th:value="취소" th:formaction="@{/}">취소</button>
     </form>
@@ -90,19 +90,19 @@
     //         }
     //     });
     // });
-    // $("#password").keyup(function(){
-    //     var pwd=$(this).val();
-    //     // 비밀번호 검증할 정규 표현식
-    //     var reg=/^.{8,}$/;
-    //     if(reg.test(pwd)){//정규표현식을 통과 한다면
-    //         $("#pwdRegErr").hide();
-    //         successState("#password");
-    //     }else{//정규표현식을 통과하지 못하면
-    //         $("#pwdRegErr").show();
-    //         errorState("#password");
-    //     }
-    // });
-    $("#rePwd").keyup(function(){
+    $("#password").keyup(function(){
+        var pwd=$(this).val();
+        // 비밀번호 검증할 정규 표현식
+        var reg=/^.{8,}$/;
+        if(reg.test(pwd)){//정규표현식을 통과 한다면
+            $("#pwdRegErr").hide();
+            successState("#password");
+        }else{//정규표현식을 통과하지 못하면
+            $("#pwdRegErr").show();
+            errorState("#password");
+        }
+    });
+    $("#passwordCheck").keyup(function(){
         var rePwd=$(this).val();
         var password=$("#password").val();
         // 비밀번호 같은지 확인

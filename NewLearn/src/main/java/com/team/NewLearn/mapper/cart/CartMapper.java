@@ -17,4 +17,10 @@ public interface CartMapper {
 
     //카트 부분 삭제
     public int deleteCart(CartDTO cart);
+
+    //카트에 같은 강의 있는지 여부
+    public int countLecture(CartDTO cartDTO);
+
+    //카트에 강의 추가
+    public int insertLecture(CartDTO cartDTO);
 }

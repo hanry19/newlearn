@@ -3,7 +3,7 @@
 
         <h1 class="mt-4">회원 정보 수정 </h1>
 
-        <form role="form" action method="post" th:object=${update}>
+        <form class="memberUpdate" role="form" action method="post" th:object=${update}>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -28,6 +28,8 @@
 
             </table>
         </form>
+
+<script src="/js/memberUpdate"></script>
 
 
 <div th:replace="/layout/footer.html :: footer"></div>

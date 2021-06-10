@@ -1,17 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>메일 발송</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="css/idLookup.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+    <link rel="stylesheet" href="/plugin/swiper.min.css">
+    <script src="/plugin/swiper.min.js"></script>
+    <script type="text/javascript" src="/js/basic.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <title>Newlearn</title>
 </head>
 <body>
-<h1>메일 발송</h1>
-
-<form th:action="@{/pwFind}" method="post">
-  <input name="email" th:value="${email}"> <br>
-  <input name="title" placeholder="제목"> <br>
-  <textarea name="message" placeholder="메일 내용을 입력해주세요." cols="60" rows="20"></textarea>
-  <button>발송</button>
-</form>
+    <div class="section" id="lookup__section">
+        <div class="lookup__logo">
+            </h1><a href="#"><img src="img/logo.png"></a>
+        </div>
+       <div class="lookup__discreption">
+        <p>비밀번호를 잃어버리셨나요?</p>
+        <p>뉴런에 가입한 이메일을 정확히 입력해 주세요.</p>
+        <p>이메일을 통해 비밀번호 수정 링크가 전송됩니다.</p>
+       </div>
+    <form th:action="@{/pwFind}" method="post">
+       <div class="lookup__box">
+        <input type="text" name="email" placeholder="가입된 이메일을 정확히 입력해주세요." th:value="${email}" >
+       </div>
+       <div class="lookup__submit">
+        <input type="submit" value="비밀번호 찾기" id="lookup__submit">
+       </div>
+    </form>
+    </div>    
 </body>
 </html>

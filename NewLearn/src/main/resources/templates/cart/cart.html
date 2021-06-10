@@ -1,9 +1,14 @@
 <div th:replace="/layout/header.html :: header"></div>
+<link rel="stylesheet" type="text/css" href="/css/cart.css">
 
-<div class="container">
-    <h1><b>[ 장바구니 ]</b></h1>
-    <div>장바구니 내 총 강의 수 : <span th:text="${#lists.size(cartLists)}"></span></div>
-    <table class="table">
+<div class="cart-bar"><span>수강바구니</span></div>
+<div class="cart-wrapper">
+    <div class="cart-bar2">
+        <span><a href="#">내 쿠폰함 ></a></span>
+        <span><a href="#">위시리스트 ></a></span>
+    </div>
+
+    <table class="cart-list">
         <thead>
         <tr>
             <th scope="col">장바구니</th>
@@ -16,32 +21,33 @@
         <tr th:each="cartList : ${cartLists}">
             <td th:text="${cartList.cart.id}">1</td>
             <td th:text="${cartList.lecture.title}">spring</td>
-            <td th:text="${cartList.lecture.price}" class="lecture_price">20000</td>
+            <td th:text="${cartList.lecture.price}" class="lecture_price">1000</td>
             <td><button class="delete-btn" th:value="${cartList.cart.id}">삭제하기</button></td>
         </tr>
         </tbody>
     </table>
+    <div class="payOutBox">
+        <div class="payBox">
+            <span id="total">총 가격 : <span id="total_sum">0</span>원</span>
+            <p>이름</p>
+            <input type="text" id="name">
+            <p>전화번호(-제외 숫자만)</p>
+            <input type="text" id="tel">
+            <p>이메일 주소</p>
+            <input type="text" id="email">
+            <!--<input type="checkbox" value="동의?">-->
+            <input class="button" type="button" value="결제하기" onclick="payment()">
+        </div>
+    </div>
+    <div>
+        <input type="text" id="couponCode" name="couponCode">
+        <input type="hidden" id="discount" name="discount" value="0">
+        <button onclick="coupon()">쿠폰적용</button>
+    </div>
 
-</div>
-<br>
-<div class="container">
-    <h3 id="total_sum"></h3>
-</div>
-<br>
-<div class="container">
-    <h3>[ 필수 입력 정보 ]</h3>
-    <br>
-    <form action="/order" >
-        <label>이름</label>
-        <input type="text" name="name" value="">
-        <label>전화번호</label>
-        <input type="text" name="tel" value="">
-        <label>이메일</label>
-        <input type="text" name="email" value="">
-        <br>
-        <br>
-     <input type="submit" class="btn btn-primary" id="pay-btn" value="결제하기"/>
-    </form>
 </div>
 
 <div th:replace="/layout/footer.html :: footer"></div>
+
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script src="/js/cart.js"></script>

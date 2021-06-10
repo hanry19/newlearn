@@ -25,11 +25,15 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	compile group: 'net.bramp.ffmpeg', name: 'ffmpeg', version: '0.6.2'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'mysql:mysql-connector-java'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws', version: '2.2.6.RELEASE'
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+	implementation group: 'net.coobird', name: 'thumbnailator', version: '0.4.14'
 }
 
 test {

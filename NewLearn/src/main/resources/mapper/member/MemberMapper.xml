@@ -7,31 +7,35 @@
 <mapper namespace="com.team.NewLearn.mapper.member.MemberMapper">
 
     <sql id="criteria">
-        <trim prefix="(" suffix=") AND">
-            <foreach collection="typeArr" item="type" separator="or">
-                <if test="type =='I'.toString()">
-                 where  email like concat( '%', #{keyword},'%')
-                </if>
-                <if test="type =='N'.toString()">
-                where    name like '% #{keyword} %'
-                </if>
 
-            </foreach>
-        </trim>
+        <foreach collection="typeArr" item="type" separator="or">
+            <if test="type =='E'.toString()">
+                where  email like concat( '%', #{keyword},'%')
+            </if>
+            <if test="type =='N'.toString()">
+                where    name like CONCAT('%',#{keyword},'%')
+            </if>
+            <if test="type =='A'.toString()">
+                where concat(name, email) REGEXP #{keyword}
+
+            </if>
+
+        </foreach>
+
     </sql>
 
 
     <select id="searchMember" resultType="memberDTO">
 
         select
-               id as id,
-               email as email,
-               password as password,
-               name as name,
-               role as role,
-               passwordLock as passwordLock,
-               regDate as regDate,
-               state as state
+        id as id,
+        email as email,
+        password as password,
+        name as name,
+        role as role,
+        passwordLock as passwordLock,
+        regDate as regDate,
+        state as state
 
         from member
         <include refid="criteria"></include>
@@ -109,7 +113,7 @@
     <update id="memberUpdate" parameterType="memberDTO" >
 
         update member set
-            name =  #{name}
+        name =  #{name}
         <if test='password != ""'> , Password = #{password}</if>
         where id = #{id}
 
@@ -123,7 +127,7 @@
     <!-- 임시 비밀번호 발급 -->
     <update id="tempPw" parameterType="memberDTO" >
         update member set
-        Password = #{password}
+            Password = #{password}
         where email = #{email}
 
     </update>

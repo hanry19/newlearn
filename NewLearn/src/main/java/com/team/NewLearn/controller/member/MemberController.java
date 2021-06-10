@@ -22,29 +22,24 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    // 전체 회원 리스트 조회
+    // 회원 정보 조회
     @GetMapping("/select")
-    public String selectAllMember(Criteria cri, Model model, Authentication auth) {
+    public String selectAllMember(Model model, Authentication auth) {
+
+        log.info("권한 디테일"+auth.getDetails());
         List<MemberDTO> memberDTOS = new ArrayList<>();
 
         if (auth.getAuthorities().toString().equals("[ROLE_ADMIN]")) {
 
             log.info("::::[ controller 관리자 ]:::: 전체회원 조회  :::::::::::: ");
 
-            memberDTOS = memberService.selectAllMember(cri);
-
-            // 로그인 정보를 model에 넣어 뷰단에서 꺼내어 사용한다.
-            model.addAttribute("auth", auth);
-            model.addAttribute("result", memberDTOS);
-            model.addAttribute("pageMaker", new PageDTO(cri, memberService.getTotal()));
-
-            return "admin/memberList";
+            return "redirect:/admin/community";
         }else {
 
             memberDTOS = memberService.selectMember(auth.getName());
 
             model.addAttribute("result", memberDTOS);
-            return "member/memberList";
+            return "member/profile";
         }
     }
 
@@ -52,8 +47,6 @@ public class MemberController {
     @GetMapping("/detail/{id}")
     public String selectMemberDetail(@PathVariable int id, Model model) {
         log.info("::::::::::: 회원 상세조회  in controller ::::::::::::::");
-
-
         model.addAttribute("detail", memberService.selectDetailMember(id));
         return "member/memberDetail";
     }
@@ -76,9 +69,8 @@ public class MemberController {
         log.info("::::::::::: 회원 정보 수정 완료 in controller  :::::::::::::::::::");
 
         memberService.memberUpdate(memberDTO);
-        String id = Integer.toString(memberDTO.getId());
 
-        return "redirect:/mypage/detail/" +id ;
+        return "redirect:/mypage/select";
     }
 
     // 회원 탈퇴
@@ -88,7 +80,9 @@ public class MemberController {
         log.info("::::::::::: 회원 탈퇴 ::::::::::::::::::::::::");
         memberService.memberDelete(id);
 
-        return "redirect:/logout";
+        return "redirect:/main";
     }
+
+
 
 }

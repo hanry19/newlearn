@@ -1,0 +1,291 @@
+
+.bold {
+    font-weight:bold;
+}
+.container {
+    margin: auto;
+}
+
+
+/* 페이지 타이틀 */
+.page-title {
+    padding:24px 0;
+    background:#333b3d;
+    color:#fff;
+}
+.page-title-inner {
+    width:1180px;
+    margin:0 auto;
+}
+.page-title-inner > h2 {
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+
+/* 페이지 내용 */
+.wrapper {
+    width:1180px;
+    margin:50px auto;
+}
+.wrapper:after {
+    display:block;
+    clear:both;
+    content:'';
+}
+.wrapper > * {
+    float:left;
+}
+
+/* 게시판 카테고리 */
+.left-menu {
+    width:170px;
+}
+.left-menu a {
+    font-size:17px;
+    display:inline-block;
+    padding:8px 0;
+    line-height:1.5;
+    color:#333;
+}
+.left-menu li.on a {
+    color:#4a81ff;
+    font-weight:bold;
+}
+
+/* 게시판 시작 */
+.board-container {
+    width:calc(100% - 170px);
+}
+
+/* 게시판 검색 */
+.search-container {
+    margin-bottom:50px;
+}
+.search-container:after {
+    display:block;
+    clear:both;
+    content:'';
+}
+.search-container > * {
+    float:left;
+}
+.search-textbox {
+    width:85%;
+    padding:12px;
+    box-sizing: border-box;
+    border:1px solid #4a81ff;
+    border-radius: 3px;
+    margin-right:15px;
+}
+.search-textbox > .fas {
+    color:#999;
+    margin-top:3px;
+}
+.search-textbox > input[type=text] {
+    width:calc(100% - 20px);
+    border:0;
+    line-height:1.5em;
+    box-sizing: border-box;
+}
+.search-container > input[type=button] {
+    width:calc(15% - 15px);
+    height:49.2px;
+    border:0;
+    background:#4a81ff;
+    color:#fff;
+    font-weight:bold;
+    border-radius:3px;
+    font-size:17px;
+}
+
+/* 해결/미해결 선택 */
+.filter-container {
+    width:100%;
+    margin-bottom:20px;
+    border-bottom:1px solid #ddd;
+}
+.filter-container ul::after {
+    display:block;
+    clear:both;
+    content:'';
+}
+.filter-container ul > li {
+    float:left;
+    margin-right:30px;
+}
+.filter-container ul > li > a {
+    display:inline-block;
+    width:70px;
+    text-align:center;
+    color:#ddd;
+    font-weight:bold;
+    font-size:17px;
+    line-height:40px;
+}
+.filter-container ul > li.on > a {
+    color:#111;
+    font-weight:bold;
+    border-bottom:3px solid #111;
+}
+
+/* 정렬 */
+.order {
+    margin-bottom:15px;
+}
+.order::after {
+    display:block;
+    clear:both;
+    content:'';
+}
+.order > * {
+    float:left;
+}
+.order ul::after {
+    display:block;
+    clear:both;
+    content:'';
+}
+.order ul > li {
+    float:left;
+    margin-right:30px;
+}
+.order ul > li > a {
+    font-size:14px;
+    color:#ddd;
+    font-weight:bold;
+}
+.order ul > li.on > a {
+    color:#111;
+    font-weight:bold;
+}
+.order ul > li > a > .fas {
+    margin-right:3px;
+}
+.order ul > li.on > a > .fas {
+    color:#4a81ff;
+}
+.order > input[type="button"] {
+    float:right;
+    height:40px;
+    padding:0 20px;
+    border:0;
+    background:#333;
+    color:#fff;
+    font-size:15px;
+    font-weight:bold;
+    border-radius: 3px;
+}
+
+/* 게시판 */
+.board-container table {
+    width:100%;
+    text-align:center;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.board-container table td {
+    border-top : 1px solid #ddd;
+    padding:15px 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.board-container table tr:last-child td {
+    border-bottom:1px solid #ddd;
+}
+
+
+/* 모달  */
+
+.modal_btn {
+    
+    background-color:#333b3d;
+    color: #fff;
+    width: 80px;
+    height: 40px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.modalHeaderBtn {
+    margin-top: 20px;
+}
+
+.modalHeaderBtn > button {
+    font-size:17px;
+    font-weight:bold;
+    width: 100px;
+    height: 40px;
+    color: #111;
+    margin-right: 5px;
+   
+    
+}
+.modalHeaderBtn > .on{
+   background-color: #4a81ff;
+   color: #fff;
+   
+    
+}
+
+.modalHeaderBtn button:hover {
+    color: #fff;
+    background-color: #4a81ff;
+}
+
+.modal-content {
+    margin-top: 250px ;
+}
+
+.modal-content h4{
+    font-weight: bold;
+}
+
+
+.modal-content .label {
+    font-weight: bold;
+    font-size: large;
+}
+
+.form_name label {
+    color: #333;
+    font-weight: bold;
+    font-size: large;
+}
+
+
+.form_name input {
+    
+    width: 565px;
+    height: 30px;
+}
+
+.form_name_text input {
+    height: 250px;
+    
+}
+
+.modal-footer > button {
+    font-size:17px;
+    font-weight:bold;
+    width: 100px;
+    height: 40px;
+    color: #111;
+    margin-right: 5px;
+    
+}
+
+.modal-footer button:hover {
+    color: #fff;
+    background-color: #4a81ff;
+}
+
+.order_button {
+position: relative;
+bottom: 10px;
+    margin-left: 500px;
+    
+}

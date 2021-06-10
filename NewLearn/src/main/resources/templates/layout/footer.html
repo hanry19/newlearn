@@ -1,0 +1,104 @@
+<!-- footer -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang= "ko" th:fragment="footer">
+<body>
+<footer>
+  <div class="footer-con">
+    <div class="footer-menu">
+      <ul>
+        <li class="title"><a href="#">강의</a></li>
+        <li><a href="#">개발·프로그래밍</a></li>
+        <li><a href="#">보안·네트워크</a></li>
+        <li><a href="#">데이터 사이언스</a></li>
+      </ul>
+      <ul>
+        <li class="title"><a href="#">수강후기</a></li>
+        <li><a href="#">강의후기</a></li>
+        <li><a href="#">강사후기</a></li>
+      </ul>
+      <ul><li class="title"><a href="#">묻고답하기</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴3</a></li>
+      </ul>
+      <ul>
+        <li class="title"><a href="#">커뮤니티</a></li>
+        <li><a href="#">질문 & 답변</a></li>
+        <li><a href="#">자유주제</a></li>
+        <li><a href="#">스터디</a></li>
+      </ul>
+      <ul>
+        <li class="title"><a href="#">장바구니</a></li>
+        <li class="title"><a href="#">마이페이지</a></li>
+      </ul>
+    </div>
+    <div class="copyright">
+      <a href="#"><img src="/img/logo_gray.png"></a>
+      <div class="footer-sns">
+        <a href="#none"><i class="fab fa-instagram-square"></i></a>
+        <a href="#none"><i class="fab fa-facebook-square"></i></a>
+        <a href="#none"><i class="fab fa-youtube-square"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/vendor/jquery/jquery.min.js}"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ********** 성준 스크립트 시작 *************** */
+  // 페이징 링크 값 받은 뒤 전달 시작
+  var actionForm = $("#actionForm");
+
+  $(".page-link").on("click", function (e) {
+    e.preventDefault();
+
+    var targetPage = $(this).attr("href");
+    console.log(targetPage);
+
+    actionForm.find("input[name ='pageNum']").val(targetPage);
+    actionForm.submit();
+
+  });
+
+  // 페이징 링크 값 받은 뒤 전달 끝
+
+  // 동적 검색 시작
+  var searchForm = $("#searchForm");
+
+  $("#searchForm button").on("click", function(e) {
+    e.preventDefault();
+    console.log ("............click")
+
+    // 검색 시 나타나야할 페이지는 무조건 1페이지여야 한다.
+    // 그렇기에 pageNum 값을 1로 지정해준다
+    searchForm.find("input[name='pageNum']").val(1);
+    searchForm.submit();
+
+  });
+<!--*************** 성준 끝 ************************-->
+
+
+<!--*************** 메인페이지 시작 *****************-->
+
+var noticeSwiper = new Swiper('.mobile-notice.swiper-container', {
+  loop:true,
+  spaceBetween: 30,
+  autoplay:true,
+  speed:1500,
+  pagination: {
+    el: '.mainBan .swiper-pagination',
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
+<!--*************** 메인페이지 끝 *******************-->
+
+</script>
+</body>
+</html>

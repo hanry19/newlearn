@@ -1,0 +1,150 @@
+.wrapper {
+    width:1180px;
+    margin:50px auto;
+}
+.wrapper:after {
+    display:block;
+    clear:both;
+    content:'';
+}
+.wrapper > * {
+    float:left;
+}
+.page-title {
+    padding:24px 0;
+    background:#333b3d;
+    color:#fff;
+}
+.page-title-inner {
+    width:1180px;
+    margin:0 auto;
+}
+.page-title-inner > h2 {
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.profile_container {
+    
+    width: 100%;
+    display: flex;
+    margin: 50px 0;    
+}
+
+.content_container {
+    position: relative;
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.list_container {
+    width: 100px;
+   position: relative;
+   
+   
+    
+}
+.list_container ul > li  {
+    margin-top: 20px;
+    font-size: 20px;
+}
+.list_container .on a {
+    color:#4a81ff;
+    font-weight:bold;
+}
+
+.list_container ul li :hover {
+    color:#4a81ff;
+}
+
+.img_container {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 350px;
+}
+
+.img_container .img_person{
+    margin-right: 10px;
+    color: #4a81ff;
+    font-size: 100px;
+}
+
+.img_container > h2 {
+    color: #4a81ff;
+    font-weight: bold;
+    font-size: 24px;
+
+}
+
+.alter_contatiner {
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px 50px ;
+    width: 100%;
+    
+}
+
+.alter_item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    padding: 35px 35px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.alter_item h2 {
+    font-weight: bold;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.alter_item > input{
+    margin-top: 10px;
+    width: 450px;
+    height: 30px;
+}
+
+.alter_item > .alterItem_button{
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+    margin-left: 130px ;
+    font-weight: bold;
+    font-size: 24px;
+    color: #fff;
+    background-color: #4a81ff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.alterItem_button{
+    margin-top: 20px;
+    width: 200px;
+    height: 50px;
+    margin-left: 130px ;
+    font-weight: bold;
+    font-size: 24px;
+    color: #fff;
+    background-color: #4a81ff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+

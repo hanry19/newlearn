@@ -1,0 +1,71 @@
+<div th:replace="/layout/header.html :: header"></div>
+
+
+<div class="page-title">
+    <div class="page-title-inner">
+        <h2>프로필</h2>
+    </div>
+
+</div>
+<div class="wrapper">
+    <div class="profile_container">
+        <div class="list_container">
+            <ul>
+                <li class="on"><a href="/mypage/select">프로필  <i class="fas fa-user-shield"></i></a></li>
+                <li><a href="#none">내 강의  <i class="fas fa-chalkboard-teacher"></i></a></li>
+                <li ><a href="#none">내 질문  <i class="fas fa-question-circle"></i></a></li>
+            </ul>
+        </div>
+        <div class="content_container" >
+            <div class="img_container">
+                <span class="img_person"><i class="fas fa-user-cog"></i></span>
+
+                <h2 >안녕하세요 <span th:each="dto:${result}">[[${dto.name}]]</span>님 환영합니다</h2>
+
+            </div>
+
+            <div class="alter_contatiner" th:each="dto : ${result}">
+                <form method="post" >
+                    <div class="alter_item">
+                        <h2>이름 변경</h2>
+                        <input type="text" name="name" th:placeholder="${dto.name}">
+                        <input type="hidden" id="id" name="id" th:value="${dto.id}">
+                        <input type="hidden" id="password" name="password" value="">
+                        <input class="alterItem_button" type="submit" value="저장하기" th:formaction="@{/mypage/update}">
+                    </div>
+                </form>
+
+                <form method="post" >
+                    <div class="alter_item">
+                        <h2>비밀번호 변경</h2>
+                        <input type="hidden" name="name" th:placeholder="${dto.name}">
+                        <input type="hidden" id="id" name="id" th:value="${dto.id}">
+                        <input type="password" id="password" name="password" value="">
+                        <input class="alterItem_button" type="submit" value="저장하기" th:formaction="@{/mypage/update}">
+                    </div>
+                </form>
+
+                <form method="post" >
+                        <h2>회원 탈퇴</h2>
+                        <input class="alterItem_button" type="submit" value="탈퇴하기" th:formaction="@{/mypage/delete/{id}(id=${dto.id})}">
+                </form>
+
+<!--
+                <div class="alter_item">
+                    <h2>이름 변경</h2>
+                    <input type="text" th:placeholder="${dto.name}">
+                    <input class="alterItem_button" type="submit" value="저장하기">
+                </div>
+                <div class="alter_item">
+                    <h2>블로그주소 변경</h2>
+                    <input type="text">
+                    <input class="alterItem_button" type="submit" value="저장하기">
+                </div>-->
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div th:replace="/layout/footer.html :: footer"></div>

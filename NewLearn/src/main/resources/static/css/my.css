@@ -1,0 +1,257 @@
+.wrapper{
+	max-width:1180px;
+	margin: 0 auto;
+}
+.mypage-bar{
+	background-color: rgb(38, 51, 104);
+	height: 55px;
+	margin-bottom:30px;
+	line-height: 55px;
+}
+.mypage-bar > span {
+	margin-left: 370px;
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
+}
+/* ----------------------마이페이지 시작--------------------- */
+.top-input-bar{
+	display: flex;
+	width: 1280px;
+	height: 45px;
+	margin-bottom: 13px;
+}
+.search-area{
+	width: 290px;
+	height: 45px;
+	background-color: #F7F7F7;
+	border-radius: 5px;
+}
+.search-area > input{
+	border: none;
+	width: 240px;
+	height: 45px;
+	background:#0000;
+	padding-left: 8px;
+}
+.search-area > span{
+	width: 50px;
+	height: 45px;
+	font-weight: bold;
+	cursor: pointer;
+	/* color: white; */
+	/* background-color: black; */
+} 
+.mypage-playlist{
+	display: flex;
+}
+.mypage-nav{
+	float:left;
+	background-color: #F3F3F3;
+	width: 140px;
+	height:800px;
+	padding:20px;
+	margin-right:20px;
+	border-radius: 10px;
+}
+.mypage-nav > ul > li > a{
+	display: block;
+	padding: 5px;
+	margin-left:13px;
+	font-weight: bold;
+}
+.mypage-nav > ul > li > span{
+	display:block;
+	color: gray;
+	padding: 15px;
+}
+.mypage-lecture-list{
+	float:left;
+	width:980px;
+}
+.mypage-lecture-list > ul > li{
+	width: 300px;
+	margin-right: 25px;
+}
+.mypage-lecture-list > ul > li:last-child{
+	 margin-right:0;
+}
+.mypage-lecture-list > h2 {
+    font-size:24px;
+    font-weight: 900;
+    color:#222;
+    margin-bottom:20px;
+}
+.mypage-lecture-list >h2 > span {
+    color: #4a81ff;
+}
+.mypage-playlist .thumb {
+    display:inline-block;
+    margin-bottom:6px;
+}
+.mypage-playlist .thumb > img {
+    display:block;
+}
+.mypage-playlist .title {
+	display:block;
+	height:14px;
+	font-weight:bold;
+    font-size:15px;
+    color:#222;
+}
+.mypage-playlist .info {
+    display:block;
+    font-size:15px;
+    color:#777;
+}
+/* ----------------------마이페이지 메인 끝--------------------- */
+/* ----------------------장바구니 시작--------------------- */
+.cart-bar2{
+	font-size: 15px;
+	margin-bottom: 50px;
+	font-weight: bold;
+	
+}
+.cart-list{
+	float:left;
+	width:700px;
+	height:250px;
+	border:2px solid #4a81ff;
+	border-radius:5px;
+	table-layout: fixed;
+	background-color: #f9fbff;
+	margin-right: 30px;
+	
+}
+.cart-list th{
+	background-color: #4a81ff;
+	font-weight: bold;
+}
+.cart-list td,th {
+	border-bottom:2px solid #4a81ff;
+	padding: 7px;
+	text-align: center;
+	vertical-align: middle;
+}
+.cart-list .image{
+	width: 150px;
+}
+.cart-list .lectureName{
+	width: 390px;
+}
+.cart-list .button{
+	width: 150px;
+}
+.payOutBox{
+	float:left;
+	width:300px;
+	height:410px;
+	background-color: #fff;
+	border:3px solid #e2e2e2;
+	border-radius: 5px;
+}
+.payBox{
+	width:280px;
+	height:370px;
+	margin: 20px auto;
+}
+.payOutBox > div > p{
+	font-size: 25px;
+	font-weight: bold;
+	margin: 10px;
+	text-align:center;	
+	
+}
+.payOutBox > div> span{
+	display: block;
+	color: #3f3f3f;
+	font-weight: bold;
+	margin-bottom: 4px;
+}
+.payOutBox > div > input{
+	display: block;
+	width: 280px;
+	height: 30px;
+	background-color: #ececec;
+	border: none;
+	margin-bottom: 20px;
+}
+.payOutBox > div > input.button{
+	width: 280px;
+	height: 70px;
+	color: white;
+	font-size:25px;
+	font-weight:bold;
+	background-color: #4a81ff;
+}
+/* ----------------------장바구니 끝--------------------- */
+/* ----------------------프로필설정  시작--------------------- */
+.profile{
+	float: left;
+}
+.profile > div{
+	border: 1px solid #e0e0e0;
+	margin-bottom: 20px;
+	width: 750px;
+}
+.profile > div.outbox1{
+	height: 400px;
+}
+.profile > div.outbox2{
+	height: 200px;
+}
+.profile > div.outbox3{
+	height: 290px;
+}
+.profile > div > div.innerbox1{
+	width: 635px;
+	height: 108px;
+	margin: 30px auto;
+}
+.profile > div > div.innerbox2{
+	width: 635px;
+	height: 108px;
+	margin: 31px auto;
+}
+.profile > div > div.innerbox3{
+	width: 635px;
+	height: 108px;
+	margin: 31px auto;
+}
+.profile > div > div > span{
+	display: block;
+	font-size:18px;
+	font-weight: bold;
+	color: #5a5a5a;
+	margin-bottom: 10px;
+}
+.profile > div > div > input{
+	display: block;
+	width: 635px;
+	height: 35px;
+	font-size:15px;
+	margin-bottom: 10px;
+	border: 1px solid #e3e3e3;
+	background-color: #ececec;
+}
+.profile > div > div > input.button{
+	display: block;
+	width: 250px;
+	height: 45px;
+	color: white;
+	background-color: #4a81ff;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	margin: 20px auto;
+	cursor: pointer;
+}
+.profile > div > div > img{
+	display:block;
+	width: 200px;
+	height: 200px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.team.NewLearn.mapper.login.LoginMapper">
+
+    <insert id="memberSignUp" parameterType="memberDTO">
+        /*회원 가입*/
+
+        insert into member (email, password, name) value (
+            #{email}
+            ,#{password}
+            ,#{name}
+            )
+
+    </insert>
+
+
+
+
+
+
+
+
+</mapper>

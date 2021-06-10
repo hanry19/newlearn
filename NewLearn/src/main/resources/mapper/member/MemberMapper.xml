@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--여기 잇는 이 com.블라블라-->
+<mapper namespace="com.team.NewLearn.mapper.member.MemberMapper">
+
+    <sql id="criteria">
+
+        <foreach collection="typeArr" item="type" separator="or">
+            <if test="type =='E'.toString()">
+                where  email like concat( '%', #{keyword},'%')
+            </if>
+            <if test="type =='N'.toString()">
+                where    name like CONCAT('%',#{keyword},'%')
+            </if>
+            <if test="type =='A'.toString()">
+                where concat(name, email) REGEXP #{keyword}
+
+            </if>
+
+        </foreach>
+
+    </sql>
+
+
+    <select id="searchMember" resultType="memberDTO">
+
+        select
+        id as id,
+        email as email,
+        password as password,
+        name as name,
+        role as role,
+        passwordLock as passwordLock,
+        regDate as regDate,
+        state as state
+
+        from member
+        <include refid="criteria"></include>
+        order by id desc
+        limit #{pageStart},#{amount};
+
+    </select>
+
+
+    <select id="selectAllMember" resultType="memberDTO">
+        select
+        id as id,
+        email as email,
+        password as password,
+        name as name,
+        role as role,
+        passwordLock as passwordLock,
+        regDate as regDate,
+        state as state
+
+        from member
+
+        <include refid="criteria"></include>
+        order by id desc
+        limit #{pageStart},#{amount}
+
+    </select>
+
+    <select id="selectMember" resultType="memberDTO">
+        select
+            id as id,
+            email as email,
+            password as password,
+            name as name,
+            role as role,
+            passwordLock as passwordLock,
+            regDate as regDate,
+            state as state
+        from member
+
+        where email = #{email}
+
+    </select>
+
+
+
+
+    <select id="getTotal" resultType="int">
+
+        select count(id) from member
+
+    </select>
+
+    <select id="selectDetailMember" resultType="memberDTO">
+        select
+            id as id,
+            email as email,
+            password as password,
+            name as name,
+            role as role,
+            passwordLock as passwordLock,
+            regDate as regDate,
+            state as state
+
+        from member
+        where id = #{id}
+    </select>
+
+    <delete id="memberDelete" parameterType="int">
+        DELETE
+        FROM member
+        WHERE id = #{id}
+    </delete>
+
+    <update id="memberUpdate" parameterType="memberDTO" >
+
+        update member set
+        name =  #{name}
+        <if test='password != ""'> , Password = #{password}</if>
+        where id = #{id}
+
+    </update>
+
+    <select id="selectMemberId" resultType="int" >
+        select id from member where email=#{email}
+    </select>
+
+
+    <!-- 임시 비밀번호 발급 -->
+    <update id="tempPw" parameterType="memberDTO" >
+        update member set
+            Password = #{password}
+        where email = #{email}
+
+    </update>
+
+    <select id="checkId" resultType="String" >
+        select email from member where email=#{email}
+    </select>
+
+
+
+
+
+
+</mapper>

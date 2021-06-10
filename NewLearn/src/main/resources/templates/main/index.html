@@ -1,0 +1,314 @@
+<div th:replace="/layout/header.html :: header"></div>
+
+
+<!-- mainBan start -->
+<div class="mainBan-con">
+    <div class="mainBan swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><a href="#"><img src="/img/mainBan_01.png"></a></div>
+            <div class="swiper-slide"><a href="#"><img src="/img/mainBan_02.png"></a></div>
+            <div class="swiper-slide"><a href="#"><img src="/img/mainBan_03.png"></a></div>
+        </div>
+        <div class="swiper-button">
+            <div class="swiper-button-next"><img src="/img/btn_right.png"></div>
+            <div class="swiper-button-prev"><img src="/img/btn_left.png"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <script>
+        let mainBanSwiper = new Swiper('.mainBan.swiper-container', {
+            loop:true,
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            spaceBetween: 50,
+            autoplay:false,
+            speed:1500,
+            pagination: {
+                el: '.mainBan .swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</div>
+<!-- mainBan end -->
+
+<!-- 관심분야 start -->
+
+<div class="lecture-list-con lecture-list-con-1"  sec:authorize="hasRole('ROLE_USER')" >
+
+    <h2><span>asdasd</span>님의 관심분야 강의</h2>
+    <ul class="lecture-list">
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img th:src="@{/img/icon_cate.png}"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img th:src="@{/img/thumb_01.png}"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">그랩</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img src="img/icon_cate.png"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img src="img/thumb_02.png"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">코딩일레븐</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img src="img/icon_cate.png"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img src="img/thumb_03.png"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">1분코딩</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img src="img/icon_cate.png"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img src="img/thumb_04.png"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">백기선</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img src="img/icon_cate.png"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img src="img/thumb_02.png"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">김영한</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+    </ul>
+</div>
+<!-- 관심분야 end -->
+
+<!-- 할인 중 start -->
+<div class="lecture-list-con">
+    <h2>현재 할인 중인 강의를 확인해보세요!</h2>
+    <ul class="lecture-list">
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img src="img/icon_cate.png"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img src="img/thumb_06.png"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">백기선</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img src="img/icon_cate.png"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img src="img/thumb_07.png"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">그랩</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img src="img/icon_cate.png"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img src="img/thumb_08.png"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">코딩일레븐</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img src="img/icon_cate.png"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img src="img/thumb_09.png"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">김영한</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img src="img/icon_cate.png"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img src="img/thumb_05.png"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">그랩</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+    </ul>
+</div>
+<!-- 할인 중 end -->
+
+<!-- 띠배너 -->
+<div class="lineBan"><img src="img/lineBan.png"></div>
+
+<!-- 베스트셀러 start -->
+<div class="lecture-list-con">
+    <h2>뉴런의 베스트셀러를 소개합니다!</h2>
+    <ul class="lecture-list">
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img src="img/icon_cate.png"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img src="img/thumb_01.png"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">백기선</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img src="img/icon_cate.png"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img src="img/thumb_02.png"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">그랩</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img src="img/icon_cate.png"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img src="img/thumb_03.png"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">코딩일레븐</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img src="img/icon_cate.png"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img src="img/thumb_04.png"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">김영한</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+        <li>
+            <div class="hover-info">
+                <h2>비전공자를 위한 진짜 올인원 개발 클래스</h2>
+                <p>리액트로 만든 웹 게임과 React Router, Redux, MobX에 타입스크립트를 붙여보면서 리액트와 타입스크립트를 같이 사용해봅시다.</p>
+                <p class="category"><img src="img/icon_cate.png"> JAVA,JSP,웹 개발</p>
+            </div>
+            <a href="#" class="thumb"><img src="img/thumb_02.png"></a>
+            <a href="#" class="title">비전공자를 위한 진짜 올인원 개발 클래스</a>
+            <span class="info"><span class="teacher">그랩</span> · <span class="score">★★★★★</span><span class="review-cnt">(51)</span></span>
+            <p class="price">₩143,000</p>
+        </li>
+    </ul>
+</div>
+<!-- 베스트셀러 end -->
+
+<!-- 공지사항 -->
+<div class="notice">
+    <h2>공지사항</h2>
+    <ul>
+        <li>
+            <a href="#" class="thumb"><img src="/img/nThumb_01.png"></a>
+            <div class="txt">
+                <a href="#" class="title">[큐레이션] 컴공과 새내기 인프런 만나 개강준비하세요.</a>
+                <p class="txt">종강할 때까지만 해도 까마득했던 개강인데,여유
+                    로운 방학생활은 순식간에 사라지고 어느덧 3월
+                    이 되었습니다.</p>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="thumb"><img src="/img/nThumb_02.png"></a>
+            <div class="txt">
+                <a href="#" class="title">[큐레이션] 컴공과 새내기 인프런 만나 개강준비하세요.</a>
+                <p class="txt">종강할 때까지만 해도 까마득했던 개강인데,여유
+                    로운 방학생활은 순식간에 사라지고 어느덧 3월
+                    이 되었습니다.</p>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="thumb"><img src="img/nThumb_03.png"></a>
+            <div class="txt">
+                <a href="#" class="title">[큐레이션] 컴공과 새내기 인프런 만나 개강준비하세요.</a>
+                <p class="txt">종강할 때까지만 해도 까마득했던 개강인데,여유
+                    로운 방학생활은 순식간에 사라지고 어느덧 3월
+                    이 되었습니다.</p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="notice mobile-notice swiper-container">
+    <h2>공지사항</h2>
+    <ul class="swiper-wrapper">
+        <li class="swiper-slide">
+            <a href="#" class="thumb"><img src="img/nThumb_01.png"></a>
+            <div class="txt">
+                <a href="#" class="title">[큐레이션] 컴공과 새내기 인프런 만나 개강준비하세요.</a>
+                <p class="txt">종강할 때까지만 해도 까마득했던 개강인데,여유
+                    로운 방학생활은 순식간에 사라지고 어느덧 3월
+                    이 되었습니다.</p>
+            </div>
+        </li>
+        <li class="swiper-slide">
+            <a href="#" class="thumb"><img src="img/nThumb_02.png"></a>
+            <div class="txt">
+                <a href="#" class="title">[큐레이션] 컴공과 새내기 인프런 만나 개강준비하세요.</a>
+                <p class="txt">종강할 때까지만 해도 까마득했던 개강인데,여유
+                    로운 방학생활은 순식간에 사라지고 어느덧 3월
+                    이 되었습니다.</p>
+            </div>
+        </li>
+        <li class="swiper-slide">
+            <a href="#" class="thumb"><img src="img/nThumb_03.png"></a>
+            <div class="txt">
+                <a href="#" class="title">[큐레이션] 컴공과 새내기 인프런 만나 개강준비하세요.</a>
+                <p class="txt">종강할 때까지만 해도 까마득했던 개강인데,여유
+                    로운 방학생활은 순식간에 사라지고 어느덧 3월
+                    이 되었습니다.</p>
+            </div>
+        </li>
+    </ul>
+</div>
+<script>
+    var noticeSwiper = new Swiper('.mobile-notice.swiper-container', {
+        loop:true,
+        spaceBetween: 30,
+        autoplay:true,
+        speed:1500,
+        pagination: {
+            el: '.mainBan .swiper-pagination',
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+</script>
+
+<div th:replace="/layout/footer.html :: footer"></div>

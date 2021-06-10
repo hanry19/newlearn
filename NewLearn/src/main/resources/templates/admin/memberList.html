@@ -1,0 +1,88 @@
+<div th:replace="/layout/header.html :: header"></div>
+
+
+        <h1 class="mt-4">회원 명부</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">e-mail</th>
+                <th scope="col">Name</th>
+                <th scope="col">Role</th>
+                <th scope="col">passwordLock</th>
+                <th scope="col">regDate</th>
+
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="dto : ${result}" th:onclick="|location.href='@{/mypage/detail/{id}(id=${dto.id})}'|">
+                <td> <a class="move" th:text="${dto.id}"scope="row" ></a></td>
+                <td th:text="${dto.email}"></td>
+                <td th:text="${dto.name}"></td>
+                <td th:text="${dto.role}"></td>
+                <td th:text="${dto.passwordLock}"></td>
+                <td th:text="${dto.regDate}"></td>
+            </tr>
+            </tbody>
+          </table>
+
+<!--        페이징 시작 -->
+
+<div aria-label="Page navigation example ">
+    <ul class="pagination" th:each="obj :${pageMaker}" >
+        <li class="page-item" >
+            <a class="page-link" th:href="${1}" aria-label="Previous">
+                <span aria-hidden="true">처음</span>
+            </a>
+        </li>
+        <li class="page-item" th:if="${obj.cri.pageNum} != 1">
+
+            <a class="page-link" th:href="${obj.cri.pageNum -1}" aria-label="Previous">
+                <span aria-hidden="true">이전</span>
+            </a>
+        </li>
+
+        <li class="page-item" th:each="idx : ${#numbers.sequence(obj.startPage, obj.endPage)}"  th:classappend="${obj.cri.pageNum} == ${idx} ? active : null">
+            <a class="page-link" th:href="${idx}" th:text=${idx}></a>
+        </li>
+
+        <li class="page-item" th:if="${obj.cri.pageNum} != ${obj.endPage}">
+            <a class="page-link" th:href="${obj.cri.pageNum +1}" aria-label="Next">
+                <span aria-hidden="true">다음</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" th:href="${obj.endPage}" aria-label="Previous">
+                <span aria-hidden="true">끝</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<form id="actionForm" action="/mypage/select" method="get">
+    <input type="hidden" name="pageNum" th:value="${pageMaker.cri.pageNum}">
+    <input type="hidden" name="amount" th:value="${pageMaker.cri.amount}">
+</form>
+
+
+<!--페이징 끝-->
+
+<form id='searchForm' action="/mypage/select" method="get" >
+    <select name="type">
+        <option th:selected="${pageMaker.cri.type=='TC'}">---</option>
+        <option value="T" th:selected="${pageMaker.cri.type=='T'}">e-mail</option>
+        <option value="C" th:selected="${pageMaker.cri.type=='C'}">이름</option>
+    </select>
+
+    <input id='actionForm' type='text' name="keyword">
+    <input type='hidden' name="pageNum" th:value='${pageMaker.cri.pageNum}'>
+    <input type='hidden' name="amount" th:value='${pageMaker.cri.amount}'>
+
+    <button class='btn btn-default'>검색</button>
+
+</form>
+
+
+
+<div th:replace="/layout/footer.html :: footer"></div>

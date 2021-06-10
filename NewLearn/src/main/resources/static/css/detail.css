@@ -1,0 +1,118 @@
+#header {
+    border-bottom:3px solid #f9f9f9;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 15px;
+}
+.content{
+    width:100%;
+}
+.content .title{
+    width:900px;
+    margin:60px auto 20px;
+    font-weight:bold;
+}
+.content .title .title-text{
+    font-size:26px;
+    font-weight: bold;
+    color:#111;
+    margin-bottom:0;
+}
+.content .title > span{
+    display:inline-block;
+    font-size:14px;
+    color:#555;
+    margin-bottom:15px;
+}
+.content .title > span .left-arrow{
+    font-size:12px;
+    line-height:14px;
+}
+.content .title p{
+    display: inline-block;
+    margin-top:15px;
+    font-size:16px;
+    color:#555;
+}
+.content .title p > span{
+    color:#000;
+}
+.content .title p i {
+    color:#4a81ff;
+}
+
+.info {
+    width:100%;
+    padding:30px 0;
+    background:#f9f9f9;
+    margin-bottom:40px;
+}
+.info-inner {
+    width:900px;
+    margin:0 auto;
+}
+.info-inner::after {
+    display:block;
+    clear:both;
+    content:'';
+}
+.info-inner > div {
+    float:left;
+    width:calc(50% - 15px);
+    height:285px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.info-inner > div.thumb {
+    margin-right:30px;
+}
+.info-inner > div.thumb > img {
+    width:100%;
+}
+.info-inner > div.check {
+    padding:30px;
+    box-sizing: border-box;
+    border:1px solid #ddd;
+}
+.info-inner > div.check > h2 {
+    line-height:21px;
+    font-weight:bold;
+    color:#444;
+    margin-bottom:15px;
+}
+.info-inner > div.check li {
+    line-height:40px;
+    color:#555;
+}
+.info-inner > div.check li i {
+    color:#4a81ff;
+}
+
+.btn-group {
+    width:900px;
+    margin:0 auto;
+    margin-top:30px;
+}
+.btn-group:after{
+    display: block;
+    content:'';
+    clear:both;
+}
+.btn-group > * {
+    float:right;
+    height:35px;
+    line-height:35px;
+    padding:0 15px;
+    border:0;
+    background:#4a81ff;
+    color:#fff;
+    font-weight:bold;
+    font-size:14px;
+    cursor:pointer;
+    margin-left:10px;
+}
+.btn-group > .wh-btn {
+    border:1px solid #ddd;
+    background:#f1f1f1;
+    color:#555;
+    border-radius: 3px;
+}

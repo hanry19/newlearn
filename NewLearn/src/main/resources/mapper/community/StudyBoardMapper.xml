@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<!--여기 잇는 이 com.블라블라-->
+<mapper namespace="com.team.NewLearn.mapper.community.StudyBoardMapper">
+
+    <sql id="criteria">
+        <trim prefix="(" suffix=") AND">
+            <foreach collection="typeArr" item="type" separator="or">
+                <if test="type =='T'.toString()">
+                    title like '%'|| #{keyword}||'%'
+                </if>
+                <if test="type =='C'.toString()">
+                    content like '%'||#{keyword}||'%'
+                </if>
+                <if test="type =='W'.toString()">
+                    writer like '%'|| #{keyword}||'%'
+                </if>
+
+            </foreach>
+        </trim>
+    </sql>
+
+    <select id="getStudyBoardList" resultType="communityDTO">
+        select b.id,
+        b.email,
+        m.name,
+        b.title,
+        b.content,
+        b.regDate,
+        b.view
+        from board as b
+        inner join boardType as t on b.typeName = t.typeName
+        inner join member as m on b.email = m.email
+
+        where t.id  = 2
+        <include refid="criteria"></include>
+
+        order by b.id desc
+        limit #{pageStart},#{amount}
+
+
+    </select>
+
+    <select id="getTotal" resultType="int">
+        select count(id) from board
+        where
+        <include refid="criteria"></include>
+        id > 0
+    </select>
+
+
+    <select id="studyBoardDetail" parameterType="int" resultType="communityDTO">
+        select b.id,
+               t.typeName,
+               m.name,
+               b.title,
+               b.content,
+               b.regDate
+        from board as b
+                 inner join boardType as t on b.typeName = t.typeName
+                 inner join member as m on b.email = m.email
+        where b.id = #{id}
+    </select>
+
+    <insert id="studyBoardInsert" parameterType="communityDTO" >
+
+        insert into board (email,
+                           typeName,
+                           title,
+                           content)
+            value ( #{email},
+            #{typeName},
+            #{title},
+            #{content}})
+
+
+    </insert>
+
+    <update id="studyBoardUpdate" parameterType="communityDTO">
+
+        update board set
+
+        title= #{title}
+
+        <if test="content != null">, content=  #{content}</if>
+
+        where id=#{id}
+
+    </update>
+
+    <delete id="studyBoardDelete" parameterType="int">
+
+        DELETE        FROM board        WHERE id = #{id}
+
+    </delete>
+
+
+
+</mapper>

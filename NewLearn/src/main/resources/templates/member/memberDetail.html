@@ -1,0 +1,47 @@
+<div th:replace="/layout/header.html :: header"></div>
+
+        <form role="form" th:object=${detail} th:action method="get">
+            <div class="btn_wrap text-left">
+                <input type="submit" th:value="목록" th:formaction="@{/mypage/select}">
+            </div>
+            <div class="btn_wrap text-left">
+                <input type="submit" th:value="수정" th:formaction="@{/mypage/update/{id}(id=${detail.id})}">
+            </div>
+        </form>
+        <form role="form" th:object=${detail}  method="post">
+            <div class="btn_wrap text-left">
+                <input type="submit" th:value="삭제" th:formaction="@{/mypage/delete/{id}(id=${detail.id})}">
+            </div>
+        </form>
+
+
+        <h1 class="mt-4">회원 명부</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">e-mail</th>
+                <th scope="col">Password</th>
+                <th scope="col">Name</th>
+                <th scope="col">Role</th>
+                <th scope="col">passwordLock</th>
+                <th scope="col">regDate</th>
+
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:object=${detail} >
+                <td th:text="${detail.id}"scope="row"></td>
+                <td th:text="${detail.email}"></td>
+                <td th:text="${detail.password}"></td>
+                <td th:text="${detail.name}"></td>
+                <td th:text="${detail.role}"></td>
+                <td th:text="${detail.passwordLock}"></td>
+                <td th:text="${detail.regDate}"></td>
+            </tr>
+            </tbody>
+          </table>
+
+
+<div th:replace="/layout/footer.html :: footer"></div>

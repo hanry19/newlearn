@@ -1,0 +1,149 @@
+#header {
+    border-bottom:3px solid #f9f9f9;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 15px;
+}
+.content {
+    width:1180px;
+    margin:50px auto;
+}
+.content::after {
+    display:block;
+    clear:both;
+    content:'';
+}
+.leftmenu {
+    float:left;
+    border:1px solid #ddd;
+}
+.leftmenu > li > a {
+    position:relative;
+    display:inline-block;
+    width:200px;
+    line-height:50px;
+    background:#f9f9f9;
+    color:#555;
+    padding-left:30px;
+    box-sizing: border-box;
+    font-weight:bold;
+    border-bottom:1px solid #ddd;
+}
+.leftmenu .left-arrow{
+    position:absolute;
+    right:20px;
+    top:50%;
+    transform: translateY(-50%);
+    font-size:14px;
+    -o-transition:all 0.5s ease; -moz-transition:all 0.5s ease; -ms-transition:all 0.5s ease; -webkit-transition:all 0.5s ease; 
+}
+.leftmenu li.on .left-arrow{
+    transform: rotate(90deg) translateX(-7px);
+}
+.leftmenu > li:last-child > a {
+    border-bottom:0;
+}
+.leftmenu .leftmenu-sub {
+    height:0;
+    overflow-y: hidden;
+}
+.leftmenu li.on .leftmenu-sub {
+    height:100%;
+}
+.leftmenu .leftmenu-sub li > a {
+    display:inline-block;
+    width:200px;
+    line-height:40px;
+    background:#fff;
+    color:#333;
+    padding-left:30px;
+    box-sizing: border-box;
+    font-size:14px;
+    font-weight:bold;
+    border-bottom:1px solid #ddd;
+}
+
+.lectureList{
+    float:right;
+    width:calc(100% - 250px);
+}
+.lecture-list > li {
+    width:226.5px;
+}
+.lecture-list > li:nth-child(4n){
+    margin-right:0;
+}
+.lecture-list > li:nth-child(n+5){
+    margin-top:40px;
+}
+.btn-group {
+    margin-top:30px;
+}
+.btn-group:after{
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.btn-group > * {
+    float:right;
+    height:35px;
+    line-height:35px;
+    padding:0 15px;
+    border:0;
+    color:#fff;
+    font-weight:bold;
+    font-size:14px;
+    cursor:pointer;
+    margin-left:10px;
+}
+.btn-group > .bl-btn {
+    background:#4a81ff;
+    height:35px;
+    line-height:35px;
+}
+.btn-group select,.btn-group form input {
+    box-sizing: border-box;
+    height:35px;
+}
+.btn-group .wh-btn {
+    border:1px solid #ddd;
+    background:#f1f1f1;
+    color:#555;
+    border-radius: 3px;
+    height:35px;
+}
+
+.pagination {
+    text-align:Center;
+    margin-top:20px;
+}
+.pagination ul {
+    display: inline-block;
+    border:1px solid #ddd;
+    box-sizing: border-box;
+}
+.pagination ul:after {
+    display: block;
+    clear: both;
+    content: '';
+}
+.pagination li {
+    float:left;
+    line-height:35px;
+    text-align:center;
+    font-size:18px;
+    border-right:1px solid #ddd;
+    box-sizing: border-box;
+}
+.pagination li:last-child {
+    border-right:0;
+}
+.pagination li a{
+    width:35px;
+    display:inline-block;
+    color:#444;
+    font-size:13px;
+}
+.pagination li.active a{
+    font-weight:bold;
+    color:#4a81ff;
+}

@@ -77,7 +77,42 @@
 
 
 
-- 업데이트 예정
+- 메인페이지
+  ![메인페이지](https://user-images.githubusercontent.com/63430211/124388102-313f8000-dd1c-11eb-9011-bcb278097646.png)
+
+- 로그인
+  ![로그인](https://user-images.githubusercontent.com/63430211/124388134-706dd100-dd1c-11eb-8b42-e416d97699f8.png)
+  
+- 회원가입
+  ![회원가입](https://user-images.githubusercontent.com/63430211/124388137-76fc4880-dd1c-11eb-9d30-b02cff03d2a8.png)
+
+
+
+- 비밀번호 찾기 
+
+![비밀번호 찾기](https://user-images.githubusercontent.com/63430211/124388139-78c60c00-dd1c-11eb-8480-9f2adf4df60b.png)
+
+- 강의 리스트 
+![111](https://user-images.githubusercontent.com/63430211/124388205-d2c6d180-dd1c-11eb-8f6f-b43075ae8f03.png)
+
+
+
+- 강의 상세
+
+ ![강의 상세 페이지](https://user-images.githubusercontent.com/63430211/124388145-7f548380-dd1c-11eb-982f-ff12b27e7608.png)
+
+- 강의 영상 길이 및 리뷰
+![강의 상세](https://user-images.githubusercontent.com/63430211/124388159-909d9000-dd1c-11eb-898a-7b863df9e646.png)
+
+- 강의 실행 페이지   
+
+![강의 상세2](https://user-images.githubusercontent.com/63430211/124388172-a317c980-dd1c-11eb-9491-b2d61b8ac30f.png)
+
+
+- 관리자 페이지 
+![ㅋㅋㅋㅋㅋㅋㅋ](https://user-images.githubusercontent.com/63430211/124388276-394bef80-dd1d-11eb-8faf-0deefa8974d6.png)
+
+
 
 # 4. 개발일지
 
